@@ -1,0 +1,8 @@
+1,1
+2,a
+3,ba
+4,aba
+5,acaba
+6,caba
+7,bcaba
+8,abcaba

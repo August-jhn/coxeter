@@ -1,0 +1,6 @@
+1,1
+2,b
+3,ab
+4,acab
+5,cab
+6,bcab

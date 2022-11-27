@@ -1,0 +1,12 @@
+1,1
+2,a
+3,ba
+4,aba
+5,baba
+6,ababa
+7,cababa
+8,abcbacababa
+9,bcbacababa
+10,acababa
+11,bacababa
+12,cbacababa
