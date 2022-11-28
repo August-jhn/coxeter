@@ -139,8 +139,7 @@ def compute_vertices(coxeter_elts, reps, initial_element, dims):
 
     returns a dictionary of points to coset representatives.
     """
-    
-
+    pass
 #here's how I'll generate facet lattices:
 #first, we compute the vertices, and have a dictionary of integers to coordinates.
 #
@@ -153,6 +152,6 @@ if __name__ == "__main__":
 
     reps = find_representation(mirrors, M)
     
-    print(shlafli_symbol_to_presentation([4,3]))
-    
-    
+    # print(shlafli_symbol_to_presentation([4,3]))
+    for rep in reps:
+        print(reps[rep])

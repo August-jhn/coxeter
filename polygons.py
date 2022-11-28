@@ -5,8 +5,8 @@ D = 2
 #[100]
 M = np.array(
     [
-        [1,4],
-        [4,1]
+        [1,5],
+        [5,1]
 
         ]
         
@@ -14,7 +14,7 @@ M = np.array(
 
 
 gens = ["a","b"]
-rels = [['a','a'], ['b','b'], ['a','b','a','b','a','b','a','b']]
+rels = [['a','a'], ['b','b'], ['a','b','a','b','a','b','a','b','a','b']]
 
 
 
@@ -59,7 +59,7 @@ def find_representation(mirrors, matrix):
         mat = np.identity(dims)
         for j in range(dims):
             mat[j] = id[j] - 2* np.dot(id[j], normals[mirrors[i]])*normals[mirrors[i]]
-        reps[mirrors[i]] = np.transpose(mat)
+        reps[mirrors[i]] = mat
 
     reps["1"] = id
 
