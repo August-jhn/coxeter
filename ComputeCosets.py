@@ -1,22 +1,17 @@
+
+import pyvis
+
 debug = False
 
-gens = ["a","b", "c",'d']
-rels =  [
-    ['d','d'],
-    ['a','a'],
-    
-    ['b','b'],
-    ['c','c'],
-    
-    ['b','c','b','c','b','c'],
-    ['b','d','b','d'],
-    ['a','d','a','d'],
-    ['a','c','a','c'],
-    ['c','d','c','d','c','d'],
-    ['a','b','a','b','a','b','a','b']
-    ]
-#rels = [   ['b', 'b'], ['b', 'c', 'b', 'c', 'b', 'c'],['a', 'c', 'a', 'c'], ['c', 'c'],['a', 'b', 'a', 'b', 'a', 'b', 'a', 'b','a','b'],['a', 'a']]
+# gens = ["a","b", "c"]
 
+# rels = [   ['b', 'b'], ['b', 'c', 'b', 'c', 'b', 'c'],['a', 'c', 'a', 'c'], ['c', 'c'],['a', 'b', 'a', 'b', 'a', 'b', 'a', 'b','a','b'],['a', 'a']]
+
+gens = ['a','b']
+rels = [['a','a','a'], ['b','b'], ['a','b','a','b']]
+
+
+#rels = [['a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','a']]
 def compute_graph(gens, rels, coset):
 
     
@@ -243,10 +238,34 @@ def word_to_index(word, graphs, indices, generators):
 
             
 def test_run():
-        
+    
+
+    colors = { 'a': "red", 'b' : "green", 'c' : "blue"}
     graphs, indices = compute_graph(gens, rels, [])
     words = compute_words(graphs, indices, gens)
     for i in words:
         print(i,words[i])
+    
+
+    
+
+    s_graph = pyvis.network.Network(directed = True, bgcolor = 'black', width = "800px", height = "800px")
+    s_graph.add_nodes(indices, size = [5 for index in indices])
+
+    for graph in graphs:
+        for ind in graphs[graph]:
+            s_graph.add_edge(
+                ind,
+                graphs[graph][ind],
+                color = colors[graph])
+
+    s_graph.toggle_physics(False)
+    
+    s_graph.show('s_graph.html')
+
+    
+
+    
+    
 if __name__ == "__main__":
     test_run()
